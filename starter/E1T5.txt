@@ -1,5 +1,21 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
+Instance and load balancer need to move to a private subnet, keeps the web service on the public subnet can cause 
+to the service to be compromised by attacker. Once we move the web servie to a private sunnet the attacker simulation 
+won't have access to our web instance. 
 
 # Poor practice 2
+Previleged users can acces to the secret recipe directly Without IMA Role and Policy, in case of keys vulnerability users will be 
+allowed to make any changes they want (delete, change), in addition we need to have a KMS for thoses S3 buckets.
+
+# Poor practice 3
+S3 doesn't have IMA Role and Plicies in a case were user's machine compromised and keys were stolen th attacker can make any changes on the 
+S3 buckets, i would alow only read access on the bucket policy in this case. In addition we need to restrict the access to the Web Servie instance principle.  
+Without the IMA Role and policies we can see that the Attack simulation instance will be able 
+to make changes on the S3 bucket.
+
+# Poor practice 3
+Instance Role missconfigured, the instances role has a full access to s3. The uses can't make any updates on the S3
+bucket so we need to update the Instance role to have a least privilege access to S3 (Read Only). 
+This wil avoid from the Attack simulation instance to make unwelcome changes on our S3 bucket.
