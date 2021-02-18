@@ -1,3 +1,7 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
+The findings are that 2 of my resources EC2 are in a proccess of brute force attack. Onc instance (the attack instance) is the onc
+that attacking the second instance (web service). I can assume that one of my instances hacked and the attacker using this 
+instance to perform brute force attack on my second instance (web instace). 
 
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+GaurdDuty collects indormation from mulrtiple AWS sources as CloudTrail, VPC flow logs and DNS logs to detect suspicious activities.
