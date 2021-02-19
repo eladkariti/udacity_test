@@ -1,8 +1,20 @@
 
 # What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+1. move the instance to private subnet with the application load balancer  
+2. add NAT gateway to enable the instance have a public ip 
+3. Configure ACL on the private subnet (where the we instance is located) to support only ips range as the public subnet (where the NAT getway configured) for inboubd and outbound access. 
+4. add IMA role and Policy to S3 buckets
+5. add vpc endpoint to S3 free recipeis 
+6. adding authentication and authrization. 
+7. remove direct accees fir privilege users to S3 secret bucket.
+8. S3 bLock public accees
 
 # Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+No, attacker can stil exploit the insrustructure and to harm the bucket. Atacker can still make uses of credentails that they stole 
+and accees the S3 bucket. i can't see how the IAM permission is related to the VPX private endpoint in this manner.  
 
 # Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+no, accodring to this doc (https://aws.amazon.com/premiumsupport/knowledge-center/s3-existing-objects-default-encryption/)
 
 # What would happen if the original cloud formation templates are applied to this environment.
+i am not sure what is the question :-) 

@@ -1,5 +1,9 @@
 
-
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+1. Move the Application load balancer and the wev service instance to the private subnet 
+2. Add an APIGateway for the incoming request from the internet and NatGateway (public subnet) to connect the web instance in the private subnet
+With thoses configuration the attacker won't have access to our web instance in the private network. 
 
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+1. we need to add IMA Role and Policy to the bucket and the privilege users to enable just them to get access to the secret S3 bucket.
+2. we can also limit the the S3 bucket with accee control for specific ips if we know where are the privilege users
