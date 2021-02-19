@@ -1,13 +1,22 @@
 # Identify tools that will allow you to do the following:
 
 ## Scan infrastructure as code templates
-
+1. Regula - tool that evaluates Terraform infrastructure-as-code
 ### Example vulnerability
+1. can expose cloud vulnerability as IMA role that has a full "*:*" administrative privileges
+2. can expose EBS volume that encryption is set to be diabled
 
 ##Scan AMI’s or containers for OS vulnerabilities
+AmazonECR - scan identifying software vulnerabilities in your container images
 
 ### Example vulnerability
+it scan the Common Vulnerabilities and Exposures by using coreOs cliar db project
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
+Amazon Inspector
 
 ### Example vulnerability
+1. Network Reachability
+2. Common vulnerabilities and exposures
+3. Center for Internet Security (CIS) Benchmarks
+
